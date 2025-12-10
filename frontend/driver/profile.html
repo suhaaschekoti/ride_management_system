@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Driver Profile | RideApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --bg: #f3f4f6;
+      --text: #111827;
+      --white: #fff;
+      --gray: #9ca3af;
+      --danger: #ef4444;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      color: var(--text);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #1f2937;
+      color: var(--white);
+      padding: 1rem 0;
+    }
+
+    .navbar .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #93c5fd;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: nowrap;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+    }
+
+    .navbar button {
+      background: var(--danger);
+      border: none;
+      color: white;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+
+    .navbar button:hover {
+      background: #b91c1c;
+    }
+
+    /* Main layout */
+    main.container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      color: var(--primary-dark);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, select {
+      padding: 0.8rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+
+    button[type="submit"], .btn-blue {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      padding: 0.8rem;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.25s ease;
+    }
+
+    button[type="submit"]:hover, .btn-blue:hover {
+      background: var(--primary-dark);
+    }
+
+    #msg {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    #msg.success { color: #16a34a; }
+    #msg.error { color: #dc2626; }
+
+    /* Vehicle section */
+    .vehicle-details {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+
+    .vehicle-details p {
+      margin: 0.4rem 0;
+      font-size: 0.95rem;
+    }
+
+    .vehicle-details span {
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      main.container {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h2>RideApp Driver Panel</h2>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="rides.html">Rides</a>
+        <a href="payments.html">Payments</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="profile.html" class="active">Profile</a>
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Profile -->
+    <section class="card">
+      <h1>My Profile</h1>
+      <form id="profileForm">
+        <input id="name" type="text" placeholder="Full Name" required />
+        <input id="email" type="email" placeholder="Email Address" required />
+        <input id="phone" type="tel" placeholder="Phone Number" required />
+        <input id="license" type="text" placeholder="License Number" required />
+        <input id="experience" type="number" min="0" placeholder="Experience (Years)" required />
+        <input id="password" type="password" placeholder="New Password (leave blank to keep)" />
+        <button type="submit">Save Changes</button>
+      </form>
+      <div id="msg"></div>
+    </section>
+
+    <!-- Vehicle -->
+    <section class="card">
+      <h2>My Vehicle</h2>
+      <div id="vehicleContainer">
+        <p><em>No vehicle assigned yet.</em></p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

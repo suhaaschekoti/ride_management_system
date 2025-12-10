@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Payments — Cab Booking</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card" style="max-width:800px;margin:24px auto;">
+      <div class="header">
+        <h2 class="h1">My Payments</h2>
+        <a href="dashboard.html" class="btn ghost">Back</a>
+      </div>
+
+      <h3 style="margin-top:16px;">🕓 Pending Payments</h3>
+      <div id="pendingContainer" class="column" style="gap:12px;margin-top:8px;">
+        <p class="small">Loading pending payments...</p>
+      </div>
+
+      <hr style="margin:24px 0;">
+
+      <h3>✅ Completed Payments</h3>
+      <div id="completedContainer" class="column" style="gap:12px;margin-top:8px;">
+        <p class="small">Loading completed payments...</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/payments.js"></script>
+</body>
+</html>

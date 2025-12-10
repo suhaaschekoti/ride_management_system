@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driver Dashboard | RideApp</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #1f2937;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .navbar a {
+      color: #9ca3af;
+      margin: 0 0.75rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar a.active, .navbar a:hover {
+      color: #fff;
+    }
+
+    .navbar button {
+      background: #ef4444;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1, h3 {
+      color: #111827;
+    }
+
+    #welcome {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .small {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .dash-nav {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .dash-nav a {
+      text-decoration: none;
+      background: #2563eb;
+      color: #fff;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .dash-nav a:hover {
+      background: #1d4ed8;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .table th, .table td {
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      padding: 0.75rem;
+    }
+
+    .table th {
+      background: #f9fafb;
+      color: #374151;
+    }
+
+    .table tr:hover {
+      background: #f3f4f6;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat-box {
+      flex: 1 1 200px;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat-box h4 {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .stat-box p {
+      margin: 0.3rem 0 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .bg-success { background: #16a34a; color: white; }
+    .bg-warning { background: #facc15; color: #1f2937; }
+    .bg-danger { background: #dc2626; color: white; }
+    .bg-secondary { background: #9ca3af; color: white; }
+  </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <h2>RideApp Driver Dashboard</h2>
+        <div>
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="rides.html">Rides</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="payments.html">Payments</a>
+          <a href="profile.html">Profile</a>
+          <a href="complaints.html">Complaints</a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </nav>      
+  </nav>
+
+  <main class="container">
+    <!-- Welcome Section -->
+    <section class="card">
+      <div id="welcome">Loading driver data...</div>
+      <div class="small" id="driverEmail"></div>
+
+      <div class="dash-nav">
+        <a href="rides.html">My Rides</a>
+        <a href="payments.html">Payments</a>
+        <a href="profile.html">Profile</a>
+        <a href="complaints.html">Complaints</a>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="card">
+      <h3>Performance Summary</h3>
+      <div class="stats">
+        <div class="stat-box">
+          <h4>Total Rides</h4>
+          <p id="totalRides">0</p>
+        </div>
+        <div class="stat-box">
+          <h4>Completed Rides</h4>
+          <p id="completedRides">0</p>
+        </div>
+        <div class="stat-box">
+          <h4>Total Earnings</h4>
+          <p id="totalEarnings">₹0</p>
+        </div>
+        <div class="stat-box">
+          <h4>Average Rating</h4>
+          <p id="rating">⭐ 0.0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Rides -->
+    <section class="card">
+      <h3>Recent Rides</h3>
+      <div id="recentRides">Loading recent rides...</div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/dashboard.js"></script>
+</body>
+</html>

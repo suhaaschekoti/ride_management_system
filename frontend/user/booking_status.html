@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Status | RideApp</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #1f2937;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .navbar a {
+      color: #9ca3af;
+      margin: 0 0.75rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar a.active, .navbar a:hover {
+      color: #fff;
+    }
+
+    .navbar button {
+      background: #ef4444;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    /* Main Container */
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1, h3 {
+      color: #111827;
+      margin-top: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .btn.primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn.secondary {
+      background: #6b7280;
+      color: #fff;
+    }
+
+    .btn.secondary:hover {
+      background: #4b5563;
+    }
+
+    /* Status area */
+    #statusArea {
+      background: #f9fafb;
+      padding: 1.2rem;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      font-size: 1rem;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 600;
+      text-transform: capitalize;
+      font-size: 0.9rem;
+    }
+
+    .status-pending_user_confirmation { background: #d97706; }
+    .status-confirmed { background: #2563eb; }
+    .status-ongoing { background: #3b82f6; }
+    .status-completed { background: #16a34a; }
+    .status-cancelled { background: #dc2626; }
+
+    #actions {
+      margin-top: 1.2rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    strong {
+      color: #111827;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h2>RideApp</h2>
+    <div>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="rides.html">Rides</a>
+      <a href="payments.html">Payments</a>
+      <a href="complaints.html">Complaints</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="card">
+      <h1>Booking Status</h1>
+      <div id="statusArea">Loading booking details...</div>
+    </section>
+  </main>
+
+  <script>
+    // Sample booking data (replace with API call)
+    const booking = {
+      booking_id: "RB-1023",
+      pickup_location: "Airport Terminal 1",
+      dropoff_location: "City Center Hotel",
+      pickup_time: "2025-11-01T15:30:00",
+      status: "pending_user_confirmation"
+    };
+
+    const statusArea = document.getElementById("statusArea");
+
+    function renderBooking(b) {
+      statusArea.innerHTML = `
+        <p><strong>Booking ID:</strong> ${b.booking_id}</p>
+        <p><strong>From:</strong> ${b.pickup_location}</p>
+        <p><strong>To:</strong> ${b.dropoff_location}</p>
+        <p><strong>Pickup Time:</strong> ${new Date(b.pickup_time).toLocaleString()}</p>
+        <p><strong>Status:</strong> <span class="status-badge status-${b.status}">${b.status}</span></p>
+        <div id="actions"></div>
+      `;
+
+      const actions = document.getElementById("actions");
+      actions.innerHTML = "";
+
+      if (b.status === "pending_user_confirmation") {
+        const confirmBtn = document.createElement("button");
+        confirmBtn.className = "btn primary";
+        confirmBtn.textContent = "Confirm Fare";
+        confirmBtn.onclick = () => {
+          b.status = "confirmed";
+          renderBooking(b);
+        };
+        actions.appendChild(confirmBtn);
+      }
+
+      if (b.status === "completed") {
+        const payBtn = document.createElement("a");
+        payBtn.href = "payments.html?booking_id=" + b.booking_id;
+        payBtn.className = "btn primary";
+        payBtn.textContent = "Pay Now";
+        actions.appendChild(payBtn);
+      }
+    }
+
+    renderBooking(booking);
+  </script>
+</body>
+</html>

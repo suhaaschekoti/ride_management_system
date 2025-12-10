@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Ride | RideApp</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #1f2937;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .navbar a {
+      color: #9ca3af;
+      margin: 0 0.75rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar a.active, .navbar a:hover {
+      color: #fff;
+    }
+
+    .navbar button {
+      background: #ef4444;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    /* Container */
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1, h3 {
+      color: #111827;
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    input, select {
+      padding: 0.7rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+    }
+
+    label {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .btn {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .btn.primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn.secondary {
+      background: #6b7280;
+      color: #fff;
+    }
+
+    .btn.secondary:hover {
+      background: #4b5563;
+    }
+
+    #message {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h2>RideApp</h2>
+    <div>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="rides.html">Rides</a>
+      <a href="payments.html">Payments</a>
+      <a href="complaints.html">Complaints</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="card">
+      <h1>Book a Ride</h1>
+      <p class="small">Enter your trip details below to request a ride.</p>
+
+      <form id="bookForm">
+        <input id="pickup" placeholder="Pickup location" required />
+        <input id="dropoff" placeholder="Dropoff location" required />
+        <label for="pickup_time">Pickup Time</label>
+        <input id="pickup_time" type="datetime-local" required />
+        <input id="fare_estimate" placeholder="Fare estimate (optional)" type="number" step="0.01" />
+        <div>
+          <button class="btn primary" type="submit">Request Ride</button>
+          <a href="dashboard.html" class="btn secondary">Cancel</a>
+        </div>
+      </form>
+
+      <div id="message"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/booking.js"></script>
+</body>
+</html>

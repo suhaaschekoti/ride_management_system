@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Rides | RideApp</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #1f2937;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .navbar a {
+      color: #9ca3af;
+      margin: 0 0.75rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar a.active, .navbar a:hover {
+      color: #fff;
+    }
+
+    .navbar button, .navbar .btn {
+      background: #ef4444;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1, h2, h3 {
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+
+    /* Table */
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .table th, .table td {
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      padding: 0.75rem;
+    }
+
+    .table th {
+      background: #f9fafb;
+      color: #374151;
+    }
+
+    .table tr:hover {
+      background: #f3f4f6;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .btn.primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn.secondary {
+      background: #6b7280;
+      color: #fff;
+    }
+
+    .btn.secondary:hover {
+      background: #4b5563;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h2>RideApp Dashboard</h2>
+    <div>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="rides.html" class="active">Rides</a>
+      <a href="payments.html">Payments</a>
+      <a href="complaints.html">Complaints</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="container">
+    <section class="card">
+      <div class="header-actions">
+        <h2>My Rides</h2>
+        <a class="btn secondary" href="dashboard.html">← Back</a>
+      </div>
+
+      <div id="ridesArea">Loading...</div>
+    </section>
+  </main>
+
+  <script type="module" src="js/rides.js"></script>
+</body>
+</html>

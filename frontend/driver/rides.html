@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Rides | RideApp Driver</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #333;
+    }
+
+    .navbar {
+      background: #1f2937;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar a {
+      color: #9ca3af;
+      margin: 0 0.75rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .navbar a.active, .navbar a:hover {
+      color: #fff;
+    }
+    .navbar button {
+      background: #ef4444;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      color: #111827;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .table th, .table td {
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      padding: 0.75rem;
+    }
+
+    .table th {
+      background: #f9fafb;
+      color: #374151;
+    }
+
+    .table tr:hover {
+      background: #f3f4f6;
+    }
+
+    .status-tag {
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #fff;
+      text-transform: capitalize;
+    }
+    .status-completed { background: #16a34a; }
+    .status-ongoing { background: #2563eb; }
+    .status-cancelled { background: #dc2626; }
+    .status-pending { background: #d97706; }
+
+    textarea {
+      width: 100%;
+      resize: vertical;
+      padding: 0.4rem;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+    }
+
+    .rating-input {
+      width: 60px;
+      padding: 0.3rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <h2>RideApp Driver Panel</h2>
+    <div>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="bookings.html">Bookings</a>
+      <a href="rides.html" class="active">Rides</a>
+      <a href="payments.html">Payments</a>
+      <a href="profile.html">Profile</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="card">
+      <h3>My Rides</h3>
+      <div id="ridesContainer">Loading your rides...</div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/rides.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Bookings | RideApp</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #1f2937;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .navbar a {
+      color: #9ca3af;
+      margin: 0 0.75rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar a.active, .navbar a:hover {
+      color: #fff;
+    }
+
+    .navbar button {
+      background: #ef4444;
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    /* Main Container */
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1, h3 {
+      color: #111827;
+      margin-top: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .btn.primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn.secondary {
+      background: #6b7280;
+      color: #fff;
+    }
+
+    .btn.secondary:hover {
+      background: #4b5563;
+    }
+
+    /* Booking Cards */
+    .booking-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #f9fafb;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .booking-card:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .booking-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .ride-info {
+      font-size: 0.95rem;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .status {
+      font-weight: 600;
+      text-transform: capitalize;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      color: #fff;
+    }
+
+    .status.pending_user_confirmation { background: #d97706; }
+    .status.confirmed { background: #2563eb; }
+    .status.ongoing { background: #3b82f6; }
+    .status.completed { background: #16a34a; }
+    .status.cancelled { background: #dc2626; }
+
+    .actions {
+      margin-top: 0.8rem;
+    }
+
+    #bookingsList p {
+      text-align: center;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h2>RideApp</h2>
+    <div>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="book_ride.html">Book Ride</a>
+      <a href="rides.html">Rides</a>
+      <a href="payments.html">Payments</a>
+      <a href="complaints.html">Complaints</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="card">
+      <h1>My Bookings</h1>
+      <div id="bookingsList">
+        <p>Loading your bookings...</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/utils.js"></script>
+  <script type="module" src="js/my_bookings.js"></script>
+</body>
+</html>
