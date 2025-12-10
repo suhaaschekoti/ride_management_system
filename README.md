@@ -1,5 +1,3 @@
-# ride_management_system
-
 # Ride Booking & Management System
 
 A full-stack ride-hailing platform built with FastAPI, SQLite, SQLAlchemy, Mapbox Directions API, and a simple HTML/CSS/JavaScript frontend.
